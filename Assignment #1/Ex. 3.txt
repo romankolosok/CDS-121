@@ -1,0 +1,4 @@
+Integers aren't mutable, since you can't change anything in integer object with particular value.
+Integer variables are mutable, unless they're constant. I can always change a variable, which has some value assigned to it,
+but for integers I cant interact with numeric object and change something(like object with value 4 and its particular address). 
+Neither value nor address of paricular numeric object can be changed.
