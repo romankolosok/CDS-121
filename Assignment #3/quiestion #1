@@ -1,0 +1,7 @@
+The most important difference is that tuples are immutable and lists aren't. Functions that are used with lists work with tuples due to immutability, even though both of them are iterables.
+They have different conversion functions: tuple() and list(), also there is a difference in creating a tuple: ("Hello") - wont work, we should include a comma after first element to let interpreter know that we are initializing a tuple.
+For list initialization one element surrounded with parentheses will be enough - ["Hello"].
+One of the helpful features tuples have is re/assigning couple variables in one line:
+one, two = two, one
+
+one, two, three = (1, 2, 3)
