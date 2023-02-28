@@ -3,9 +3,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 class Stock():
     def __init__(self, symbol):
-        self.symbol = symbol
+        self.__symbol = symbol
         self.prices = []
 
+    @property
+    def symbol(self):
+        return self.__symbol
     def clear_prices(self):
         self.prices.clear()
 
@@ -32,19 +35,20 @@ n = random.randint(1,24)
 for _ in range(n):
     stock.add_price(round(random.uniform(10,1000), 2))
 
-print(stock.prices)
-print(stock.avg_stock_price)
-print(stock.low_and_high_price)
-print(stock.open_and_close_price)
+# print(stock.prices)
+# print(stock.avg_stock_price)
+# print(stock.low_and_high_price)
+# print(stock.open_and_close_price)
+print(stock.symbol)
 
 #simple matplot usage
-plt.rcParams['figure.dpi']=400
-plt.title("Stock prices during day")
-plt.ylabel("Price, $")
-plt.xlabel("Hour, hr")
-plt.grid()
-
-plt.bar(np.linspace(1, n, n) ,stock.prices, edgecolor='black', linewidth=1, color='green')
-
-plt.show()
+# plt.rcParams['figure.dpi']=400
+# plt.title("Stock prices during day")
+# plt.ylabel("Price, $")
+# plt.xlabel("Hour, hr")
+# plt.grid()
+#
+# plt.bar(np.linspace(1, n, n) ,stock.prices, edgecolor='black', linewidth=1, color='green')
+#
+# plt.show()
 
