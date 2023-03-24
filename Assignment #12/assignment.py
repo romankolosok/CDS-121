@@ -32,7 +32,7 @@ pprint(count_letters)
 #counter counted letters in word and has dictionary with count of each letter within it, since it has dictionary, maybe it work like a dictionary too? :]
 #lets try to access data inside Counter()
 
-print("Goind inside Counter(): ")
+print("Going inside Counter(): ")
 for element in count_letters:
     print(element, ":", count_letters[element])
 print("Left Counter()")
