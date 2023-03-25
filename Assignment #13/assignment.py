@@ -1,23 +1,34 @@
-from html.entities import html5
-import html
-snowman = '\u2603'
-print(snowman.encode('utf-8'))
-print(snowman.encode('ascii', 'backslashreplace'))
-print(snowman.encode('ascii', 'xmlcharrefreplace'))
+import time
+import datetime
 
-cafe = 'caf\u00e9'
-print(cafe)
-cafe_bytes = cafe.encode('utf-8')
-print(cafe_bytes)
-print(cafe_bytes.decode('utf-8'))
-# print(cafe_bytes.decode('ascii'))
-print(cafe_bytes.decode('latin-1'))
-print(cafe_bytes.decode('windows-1252'))
-print(html5['egrave;'])
+#first
 
-char = '\u00e9'
-dec_value = ord(char)
-print(char, dec_value)
-print(html.entities.codepoint2name[dec_value])
-byte_value = cafe.encode('ascii', 'xmlcharrefreplace')
-print(byte_value, byte_value.decode())
+str_symb = "für die È gesamte Bevölkerung È quanto È qualità della"
+
+print(str_symb, f"Length: {len(str_symb)}")
+print(str_symb.encode('utf-8'), f"Byte length: {len(str_symb.encode('utf-8'))}")
+with open("text.txt", "w") as f:
+    f.write(str_symb)
+
+ascii_str = str_symb.encode('ascii', 'replace')
+print(ascii_str)
+
+#second
+
+user_date_str = input("Enter your birthday in MM/DD/YYYY format: ")
+user_date = time.strptime(user_date_str, "%m/%d/%Y")
+# print(user_date, time.mktime(user_date))
+now = time.time()
+print("Days from your birthday:", datetime.timedelta(seconds=now-time.mktime(user_date)))
+
+#third
+
+with open("input.txt") as f:
+    dates = [datetime.datetime.strptime(line.strip(), "%Y-%m-%d") for line in f.readlines() if line.strip() != ""]
+
+max = datetime.timedelta(days=0)
+for i in range(1,len(dates)):
+    if dates[i]-dates[i-1] > max:
+        max = dates[i]-dates[i-1]
+
+print(f"Biggest date gap is: {max.days} day(s)")
